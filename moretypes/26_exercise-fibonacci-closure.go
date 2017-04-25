@@ -7,9 +7,8 @@ import "fmt"
 func fibonacci() func() int {
 	n0, n1 := 1, 0
 	return func() int {
-		tmp := n1
-		n1 = n0 + n1
-		n0 = tmp
+		newN0, newN1 := n1, n0 + n1
+		n0, n1 = newN0, newN1
 		return n1
 	}
 }
